@@ -1,0 +1,17 @@
+<h1>New Courier</h1>
+
+<%= form_with scope: :courier, url: couriers_path, local: true do |form| %>
+    <p>
+      <%= form.label :name %><br>
+      <%= form.text_field :title %>
+    </p>
+  
+    <p>
+      <%= form.label :email %><br>
+      <%= form.email_field :address %>
+    </p>
+  
+    <p>
+      <%= form.submit %>
+    </p>
+  <% end %>
