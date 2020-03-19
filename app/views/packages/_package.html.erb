@@ -7,3 +7,9 @@
     <strong>Delivery_status:</strong>
     <%= package.delivery_status %>
   </p>
+
+  <p>
+    <%= link_to 'Destroy Package', [package.courier, package],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+  </p>
