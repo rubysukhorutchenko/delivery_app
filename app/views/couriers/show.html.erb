@@ -1,0 +1,40 @@
+<p>
+  <strong>Name:</strong>
+  <%= @courier.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @courier.email %>
+</p>
+<h2>Package</h2>
+<% @courier.packages.each do |package| %>
+  <p>
+    <strong>Tracking_number:</strong>
+    <%= package.tracking_number %>
+  </p>
+
+  <p>
+    <strong>Delivery_status:</strong>
+    <%= package.delivery_status %>
+  </p>
+<% end %>
+
+<h2>Add a package:</h2>
+<%= form_with(model: [ @courier, @courier.packages.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :tracking_number %><br>
+    <%= form.text_field :tracking_number %>
+  </p>
+  <p>
+    <%= form.label :delivery_status %><br>
+    <%= check_box_tag :delivery_status %>
+    
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%= link_to 'Edit', edit_courier_path(@courier) %> |
+<%= link_to 'Back', couriers_path %>

@@ -1,0 +1,23 @@
+<h1>Listing couriers</h1>
+
+<%= link_to 'New courier', new_courier_path %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th></th>
+  </tr>
+
+  <% @couriers.each do |courier| %>
+    <tr>
+      <td><%= courier.name %></td>
+      <td><%= courier.email %></td>
+      <td><%= link_to 'Show', courier_path(courier) %></td>
+      <td><%= link_to 'Edit', edit_courier_path(courier) %></td>
+      <td><%= link_to 'Destroy', courier_path(courier),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
