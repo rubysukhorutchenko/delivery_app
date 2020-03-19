@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class CouriersController < ApplicationController
   def index
     @couriers = Courier.all
   end
-  
+
   def show
     @courier = Courier.find(params[:id])
   end
-  
+
   def new
     @courier = Courier.new
   end
@@ -27,7 +29,7 @@ class CouriersController < ApplicationController
 
   def update
     @courier = Courier.find(params[:id])
-  
+
     if @courier.update(courier_params)
       redirect_to @courier
     else
@@ -38,12 +40,13 @@ class CouriersController < ApplicationController
   def destroy
     @courier = Courier.find(params[:id])
     @courier.destroy
-  
+
     redirect_to couriers_path
   end
 
   private
-    def courier_params
-      params.require(:courier).permit(:name, :email)
-    end
+
+  def courier_params
+    params.require(:courier).permit(:name, :email)
+  end
 end
